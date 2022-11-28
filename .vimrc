@@ -82,7 +82,7 @@ set shiftwidth=2
 set expandtab
 set smartindent
 set nu
-set wrap 
+set nowrap 
 set nobackup
 set undodir=~/.vim/undordir
 set undofile 
@@ -130,6 +130,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Python code formatter
 Plug 'ambv/black'
+" use this if you want later :Black to format python code
+
 
 " Gruvbox color theme
 Plug 'morhetz/gruvbox'
@@ -146,6 +148,11 @@ Plug 'mattn/emmet-vim'
 " eslint
 Plug 'eslint/eslint'
 
+" VsCode Theme
+Plug 'tomasiser/vim-code-dark'
+
+" vim moonfly Theme
+Plug 'bluz71/vim-moonfly-colors', { 'branch': 'cterm-compat' }
 
 call plug#end()
 
@@ -157,13 +164,14 @@ nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>t :NERDTree<cr>
 nmap <leader><leader>p :Prettier<cr>
-nmap <leader><leader>g :GoFmt<cr>
-nmap <leader><leader>b :Black<cr>
+nmap <leader><leader>b :Buffers<cr>
 nmap <leader><leader>u :UndotreeToggle<cr>
+nmap <leader><leader>w :Windows<cr>
+
 " Files (runs $FZF_DEFAULT_COMMAND if defined)
-nmap <leader><leader>f :Files<cr>
+nmap <leader><leader>g :GFiles<cr>
 nmap <leader><leader><leader>g :GoMetaLinter<cr>
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <leader><leader>c :call nerdcommenter#Comment(0,"toggle")<CR>
 vnoremap <leader><leader>c :call nerdcommenter#Comment(0,"toggle")<CR>
 nnoremap <leader><Tab> :bnext<CR>
@@ -369,5 +377,8 @@ let g:prettier#exec_cmd_path = "~/.vim/plugged/vim-prettier/node_modules/prettie
 let g:prettier#config#print_width = 100 " default is 'auto'
 
 " Colorscheme (For gruvbox $TERM env var needs to be xterm-256color)
-autocmd vimenter * ++nested colorscheme gruvbox
-"colorscheme vim-monokai-tasty
+"autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme vim-monokai-tasty
+"colorscheme codedark
+
+"colorscheme moonfly
