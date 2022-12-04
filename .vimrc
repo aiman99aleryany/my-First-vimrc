@@ -90,12 +90,15 @@ set incsearch
 set relativenumber
 set cursorline
 set showcmd
+set termguicolors
 
 " Column set to column 100
 set colorcolumn=100
 
 " Column color set to grey
 highlight ColorColumn ctermbg=1
+
+
 
 " Plugins installation using Vim-Plug
 call plug#begin('~/.vim/plugged')
@@ -153,6 +156,18 @@ Plug 'tomasiser/vim-code-dark'
 
 " vim moonfly Theme
 Plug 'bluz71/vim-moonfly-colors', { 'branch': 'cterm-compat' }
+
+
+" vim Nord Theme
+Plug 'arcticicestudio/nord-vim'
+
+
+
+
+
+
+
+
 
 call plug#end()
 
@@ -377,8 +392,9 @@ let g:prettier#exec_cmd_path = "~/.vim/plugged/vim-prettier/node_modules/prettie
 let g:prettier#config#print_width = 100 " default is 'auto'
 
 " Colorscheme (For gruvbox $TERM env var needs to be xterm-256color)
-"autocmd vimenter * ++nested colorscheme gruvbox
-colorscheme vim-monokai-tasty
-"colorscheme codedark
 
+"autocmd vimenter * ++nested colorscheme gruvbox
+"colorscheme vim-monokai-tasty
+"colorscheme codedark
 "colorscheme moonfly
+colorscheme nord
